@@ -193,28 +193,28 @@ public:
         std::memcpy(str, buffer, N);
         return N;
     }
-    bool parseSecondMessage(void* buffer, size_t size);
-    bool parseOrderBookDirectoryMessage(void* buffer, size_t size);
-    bool parseCombinationOrderBookLegMessage(void* buffer, size_t size);
-    bool parseTickSizeTableEntryMessage(void* buffer, size_t size);
-    bool parseSystemEventMessage(void* buffer, size_t size);
-    bool parseOrderBookStateMessage(void* buffer, size_t size);
-    bool parseAddOrderMessage(void* buffer, size_t size);
-    bool parseAddOrderMessageWithMPID(void* buffer, size_t size);
-    bool parseOrderExecutedMessage(void* buffer, size_t size);
-    bool parseOrderExecutedWithPriceMessage(void* buffer, size_t size);
-    bool parseOrderDeleteMessage(void* buffer, size_t size);
-    bool parseTradeMessage(void* buffer, size_t size);
-    bool parseEquilibriumPriceUpdate(void* buffer, size_t size);
-    bool parseUnknownMessage(void* buffer, size_t size);
-    bool parseMessage(void* buffer, size_t size);
-    bool parse(void* buffer);
+    bool parseSecondMessage(void* buffer, size_t size)noexcept;
+    bool parseOrderBookDirectoryMessage(void* buffer, size_t size)noexcept;
+    bool parseCombinationOrderBookLegMessage(void* buffer, size_t size)noexcept;
+    bool parseTickSizeTableEntryMessage(void* buffer, size_t size)noexcept;
+    bool parseSystemEventMessage(void* buffer, size_t size)noexcept;
+    bool parseOrderBookStateMessage(void* buffer, size_t size)noexcept;
+    bool parseAddOrderMessage(void* buffer, size_t size)noexcept;
+    bool parseAddOrderMessageWithMPID(void* buffer, size_t size)noexcept;
+    bool parseOrderExecutedMessage(void* buffer, size_t size)noexcept;
+    bool parseOrderExecutedWithPriceMessage(void* buffer, size_t size)noexcept;
+    bool parseOrderDeleteMessage(void* buffer, size_t size)noexcept;
+    bool parseTradeMessage(void* buffer, size_t size)noexcept;
+    bool parseEquilibriumPriceUpdate(void* buffer, size_t size)noexcept;
+    bool parseUnknownMessage(void* buffer, size_t size)noexcept;
+    bool parseMessage(void* buffer, size_t size)noexcept;
+    bool parse(void* buffer)noexcept;
 
-    size_t errors() const { return _errors; }
+    size_t errors()const noexcept { return _errors; }
 
 private:
-    bool onMessage(const UnknownMessage& message)const { ++_errors; return true; }
-    void _writeFileHeader();
+    bool onMessage(const UnknownMessage& message)const noexcept{ ++_errors; return true; }
+    void _writeFileHeader()noexcept;
     mutable size_t _messages;
     mutable size_t _errors;
     std::ofstream _outFile;

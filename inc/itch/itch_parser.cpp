@@ -19,7 +19,7 @@ ITCHParser::~ITCHParser() {
     }
 }
 
-bool ITCHParser::parseSecondMessage(void* buffer, size_t size) {
+bool ITCHParser::parseSecondMessage(void* buffer, size_t size)noexcept {
     assert((size == 5) && "Invalid size of the ITCH message type 'T'");
     uint8_t* data = (uint8_t*)buffer;
 
@@ -30,7 +30,7 @@ bool ITCHParser::parseSecondMessage(void* buffer, size_t size) {
     return true;
 }
 
-bool ITCHParser::parseOrderBookDirectoryMessage(void* buffer, size_t size) {
+bool ITCHParser::parseOrderBookDirectoryMessage(void* buffer, size_t size)noexcept {
     assert((size == 129) && "Invalid size of the ITCH message type 'R'");
 
     uint8_t* data = (uint8_t*)buffer;
@@ -59,7 +59,7 @@ bool ITCHParser::parseOrderBookDirectoryMessage(void* buffer, size_t size) {
     return true;
 }
 
-bool ITCHParser::parseCombinationOrderBookLegMessage(void* buffer, size_t size) {
+bool ITCHParser::parseCombinationOrderBookLegMessage(void* buffer, size_t size)noexcept {
     assert((size == 18) && "Invalid size of the ITCH message type 'M'");
     uint8_t* data = (uint8_t*)buffer;
 
@@ -74,7 +74,7 @@ bool ITCHParser::parseCombinationOrderBookLegMessage(void* buffer, size_t size) 
     return true;
 }
 
-bool ITCHParser::parseTickSizeTableEntryMessage(void* buffer, size_t size) {
+bool ITCHParser::parseTickSizeTableEntryMessage(void* buffer, size_t size)noexcept {
     assert((size == 25) && "Invalid size of the ITCH message type 'L'");
     uint8_t* data = (uint8_t*)buffer;
 
@@ -89,7 +89,7 @@ bool ITCHParser::parseTickSizeTableEntryMessage(void* buffer, size_t size) {
     return true;
 }
 
-bool ITCHParser::parseSystemEventMessage(void* buffer, size_t size) {
+bool ITCHParser::parseSystemEventMessage(void* buffer, size_t size)noexcept {
     assert((size == 6) && "Invalid size of the ITCH message type 'S'");
     uint8_t* data = (uint8_t*)buffer;
     
@@ -101,7 +101,7 @@ bool ITCHParser::parseSystemEventMessage(void* buffer, size_t size) {
     return true;
 }
 
-bool ITCHParser::parseOrderBookStateMessage(void* buffer, size_t size) {
+bool ITCHParser::parseOrderBookStateMessage(void* buffer, size_t size)noexcept {
     assert((size == 29) && "Invalid size of the ITCH message type 'O'");
     uint8_t* data = (uint8_t*)buffer;
     
@@ -114,7 +114,7 @@ bool ITCHParser::parseOrderBookStateMessage(void* buffer, size_t size) {
     return true;
 }
 
-bool ITCHParser::parseAddOrderMessage(void* buffer, size_t size) {
+bool ITCHParser::parseAddOrderMessage(void* buffer, size_t size)noexcept {
     assert((size == 37) && "Invalid size of the ITCH message type 'A'");
     uint8_t* data = (uint8_t*)buffer;
 
@@ -134,7 +134,7 @@ bool ITCHParser::parseAddOrderMessage(void* buffer, size_t size) {
     return true;
 }
 
-bool ITCHParser::parseAddOrderMessageWithMPID(void* buffer, size_t size) {
+bool ITCHParser::parseAddOrderMessageWithMPID(void* buffer, size_t size)noexcept {
     assert((size == 44) && "Invalid size of the ITCH message type 'F'");
     uint8_t* data = (uint8_t*)buffer;
 
@@ -154,7 +154,7 @@ bool ITCHParser::parseAddOrderMessageWithMPID(void* buffer, size_t size) {
     return true;
 }
 
-bool ITCHParser::parseOrderExecutedMessage(void* buffer, size_t size) {
+bool ITCHParser::parseOrderExecutedMessage(void* buffer, size_t size)noexcept {
     assert((size == 52) && "Invalid size of the ITCH message type 'E'");
     uint8_t* data = (uint8_t*)buffer;
 
@@ -173,7 +173,7 @@ bool ITCHParser::parseOrderExecutedMessage(void* buffer, size_t size) {
     return true;
 }
 
-bool ITCHParser::parseOrderExecutedWithPriceMessage(void* buffer, size_t size) {
+bool ITCHParser::parseOrderExecutedWithPriceMessage(void* buffer, size_t size)noexcept {
     assert((size == 58) && "Invalid size of the ITCH message type 'C'");
     uint8_t* data = (uint8_t*)buffer;
 
@@ -195,7 +195,7 @@ bool ITCHParser::parseOrderExecutedWithPriceMessage(void* buffer, size_t size) {
     return true;
 }
 
-bool ITCHParser::parseOrderDeleteMessage(void* buffer, size_t size) {
+bool ITCHParser::parseOrderDeleteMessage(void* buffer, size_t size)noexcept {
     assert((size == 18) && "Invalid size of the ITCH message type 'D'");
     uint8_t* data = (uint8_t*)buffer;
 
@@ -210,7 +210,7 @@ bool ITCHParser::parseOrderDeleteMessage(void* buffer, size_t size) {
     return true;
 }
 
-bool ITCHParser::parseTradeMessage(void* buffer, size_t size) {
+bool ITCHParser::parseTradeMessage(void* buffer, size_t size)noexcept {
     assert((size == 50) && "Invalid size of the ITCH message type 'P'");
     uint8_t* data = (uint8_t*)buffer;
 
@@ -231,7 +231,7 @@ bool ITCHParser::parseTradeMessage(void* buffer, size_t size) {
     return true;
 }
 
-bool ITCHParser::parseEquilibriumPriceUpdate(void* buffer, size_t size) {
+bool ITCHParser::parseEquilibriumPriceUpdate(void* buffer, size_t size)noexcept {
     assert((size == 53) && "Invalid size of the ITCH message type 'Z'");
     uint8_t* data = (uint8_t*)buffer;
 
@@ -250,7 +250,7 @@ bool ITCHParser::parseEquilibriumPriceUpdate(void* buffer, size_t size) {
     return true;
 }
 
-bool ITCHParser::parseUnknownMessage(void* buffer, size_t size) {
+bool ITCHParser::parseUnknownMessage(void* buffer, size_t size)noexcept {
     assert((size > 0) && "Invalid size of the unknown ITCH message!");
     if (size == 0)
         return false;
@@ -263,7 +263,7 @@ bool ITCHParser::parseUnknownMessage(void* buffer, size_t size) {
     return onMessage(message);
 }
 
-bool ITCHParser::parseMessage(void* buffer, size_t size) {
+bool ITCHParser::parseMessage(void* buffer, size_t size)noexcept {
     // Message is empty
     if (size == 0)
         return false;
@@ -303,7 +303,7 @@ bool ITCHParser::parseMessage(void* buffer, size_t size) {
     }
 }
 
-bool ITCHParser::parse(void* buffer) {
+bool ITCHParser::parse(void* buffer)noexcept {
     uint8_t* data = (uint8_t*)buffer;
     data += 18; //for MoldUDP64 protocol header
 
@@ -320,7 +320,7 @@ bool ITCHParser::parse(void* buffer) {
     return true;
 }
 
-void ITCHParser::_writeFileHeader() {
+void ITCHParser::_writeFileHeader()noexcept {
     _outFile 
             << std::setw(20) << std::left << "Timestamp"
             << std::setw(10) << std::left << "Message Type"
