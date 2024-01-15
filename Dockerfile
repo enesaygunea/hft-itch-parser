@@ -2,6 +2,7 @@ FROM ubuntu:22.04 as base
 
 RUN apt-get update && apt-get install -y \
     build-essential \
+    git \
     cmake \
     gdb \
     python3-pip

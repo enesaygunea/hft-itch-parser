@@ -4,10 +4,20 @@ project(hft-itch-parser)
 
 set(CMAKE_CXX_STANDARD 17)
 
+include(FetchContent)
+
+FetchContent_Declare(
+  readerwriterqueue
+  GIT_REPOSITORY    https://github.com/cameron314/readerwriterqueue
+  GIT_TAG           master
+)
+FetchContent_MakeAvailable(readerwriterqueue)
+
 find_package(pcapplusplus)
 
 add_executable(${PROJECT_NAME} 
     main.cpp
+    inc/itch/itch_parser.cpp
 )
 
 set(HEADERS
@@ -25,4 +35,5 @@ target_include_directories(${PROJECT_NAME}
 
 target_link_libraries(${PROJECT_NAME}
     pcapplusplus::pcapplusplus
+    readerwriterqueue
 )
